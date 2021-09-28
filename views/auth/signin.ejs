@@ -1,1 +1,26 @@
+<%- contentFor('body') %>
 Sign in
+<form id="testsub">
+    <input type="text" name="test">
+    <button type="submit">Send</button>
+</form>
+
+<script>
+  let testSubForm = document.getElementById("testsub")
+
+  console.log(testSubForm)
+
+  testSubForm.onsubmit = async function (event) {
+    event.preventDefault()
+
+    let formData = new FormData(this)
+    let response = await fetch('/auth/signin', { method: "POST", body: formData }).then((res) => res.json())
+
+    if (response.success) {
+      window.location = "/"
+    } else {
+      alert("Error, message :  " + response.message)
+    }
+  }
+
+</script>
