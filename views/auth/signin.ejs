@@ -1,16 +1,19 @@
 <%- contentFor('body') %>
 Sign in
-<form id="testsub">
-    <input type="text" name="test">
-    <button type="submit">Send</button>
+<form id="signInUser">
+    <label for="name">Username</label>
+    <input type="text" name="username">
+    <label for="password">Password</label>
+    <input type="text" name="password">
+    <button type="submit">Login</button>
 </form>
 
 <script>
-  let testSubForm = document.getElementById("testsub")
+  let signInForm = document.getElementById("signInUser")
 
-  console.log(testSubForm)
+  console.log(signInForm)
 
-  testSubForm.onsubmit = async function (event) {
+  signInForm.onsubmit = async function (event) {
     event.preventDefault()
 
     let formData = new FormData(this)
@@ -19,8 +22,14 @@ Sign in
     if (response.success) {
       window.location = "/"
     } else {
-      alert("Error, message :  " + response.message)
+      Swal.fire({
+        toast: true,
+          position:"top-end",
+          showConfirmButton: false,
+          timer: 2500,
+          icon: "error",
+          text: response.message
+      })
     }
   }
-
 </script>

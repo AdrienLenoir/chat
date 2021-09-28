@@ -1,1 +1,37 @@
+<%- contentFor('body') %>
 Sign up
+<form id="signUpUser">
+    <label for="name">Username</label>
+    <input type="text" name="username">
+    <label for="password">Password</label>
+    <input type="text" name="password">
+    <label for="passwordAgain">Password again</label>
+    <input type="text" name="passwordAgain">
+    <button type="submit">Login</button>
+</form>
+
+<script>
+  let signUpForm = document.getElementById("signUpUser")
+
+  console.log(signUpForm)
+
+  signUpForm.onsubmit = async function (event) {
+    event.preventDefault()
+
+    let formData = new FormData(this)
+    let response = await fetch('/auth/signin', { method: "POST", body: formData }).then((res) => res.json())
+
+    if (response.success) {
+      window.location = "/"
+    } else {
+        Swal.fire({
+        toast: true,
+          position:"top-end",
+          showConfirmButton: false,
+          timer: 2500,
+          icon: "error",
+          text: response.message
+      })
+    }
+  }
+</script>
