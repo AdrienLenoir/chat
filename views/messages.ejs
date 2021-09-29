@@ -1,2 +1,40 @@
 <%- contentFor('body') %>
 messages page
+
+<form id="messageUser">
+    <textarea name="message" rows="10" cols="40"></textarea>
+    <button type="submit">send</button>
+</form>
+
+<script>
+  let messageUser = document.getElementById("messageUser")
+  console.log(messageUser)
+
+  messageUser.onsubmit = async function (event) {
+    event.preventDefault()
+
+    let formData = new FormData(this)
+    let response = await fetch('messages', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: formData.get('message')
+      })
+    }).then((res) => res.json())
+
+    if (response.success) {
+      window.location = "/"
+    } else {
+        Swal.fire({
+        toast: true,
+          position:"top-end",
+          showConfirmButton: false,
+          timer: 2500,
+          icon: "error",
+          text: response.message
+      })
+    }
+  }
+</script>
