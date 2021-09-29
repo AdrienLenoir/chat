@@ -7,7 +7,7 @@ export default {
     console.log(req.body)
     return res.json({
       success: false,
-      message: "formulaire invalide"
+      message: "Formulaire invalide"
     })
   }
 }

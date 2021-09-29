@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken")
 const JWT_SIGN_SECRET = process.env.JWT_SIGN_SECRET
 
-export default {
+module.exports = {
   generate: (userId) => {
     return jwt.sign(
       { id: userId },
@@ -19,5 +19,8 @@ export default {
     }
 
     return false
+  },
+  getUserId: (token) => {
+    return token ? jwt.verify(token, JWT_SIGN_SECRET)?.id : false
   }
 }
