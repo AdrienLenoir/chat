@@ -1,40 +1,82 @@
 <%- contentFor('body') %>
-messages page
+<p>messages page</p>
 
-<form id="messageUser">
-    <textarea name="message" rows="10" cols="40"></textarea>
-    <button type="submit">send</button>
-</form>
 
-<script>
-  let messageUser = document.getElementById("messageUser")
-  console.log(messageUser)
+<p>Threads :</p>
+<ul>
+    <% threads.forEach(function(thread){ %>
+        <li>
+            <a href="/messages/<%= thread.id %>">
+                id: <%= thread.id %><br>
+                username: <%= thread.username %>
+            </a>
+        </li>
+    <% }); %>
+</ul>
 
-  messageUser.onsubmit = async function (event) {
-    event.preventDefault()
+<p>Messages :</p>
+<ul id="messages">
+    <% messages.forEach(function(message){ %>
+        <li>
+            username: <%= message.username %><br>
+            content: <%= message.content %><br>
+            created_at: <%= message.created_at %>
+        </li>
+    <% }); %>
+</ul>
 
-    let formData = new FormData(this)
-    let response = await fetch('messages', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: formData.get('message')
-      })
-    }).then((res) => res.json())
+<% if (userTo) { %>
+    <p>Send message :</p>
+    <form id="messageUser">
+        <textarea name="message" id="messageInput" rows="10" cols="40"></textarea>
+        <button type="submit">send</button>
+    </form>
+<% } %>
 
-    if (response.success) {
-      window.location = "/"
-    } else {
-        Swal.fire({
-        toast: true,
-          position:"top-end",
-          showConfirmButton: false,
-          timer: 2500,
-          icon: "error",
-          text: response.message
-      })
-    }
-  }
-</script>
+<% if (userTo) { %>
+    <script>
+      let messageUser = document.getElementById("messageUser")
+      const messagesElement = document.getElementById("messages")
+      const messageInputElement = document.getElementById("messageInput")
+
+      messageUser.onsubmit = async function (event) {
+        event.preventDefault()
+
+        let formData = new FormData(this)
+        let response = await fetch(window.location, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: formData.get('message')
+          })
+        }).then((res) => res.json())
+
+        if (response.success) {
+          let message = response.message
+          let messageElement = document.createElement("li")
+
+          messageElement.innerHTML = `username: ${message.username} <br>content: ${message.content}<br>created_at: ${message.created_at}`
+          messagesElement.append(messageElement)
+          messageInputElement.value = ''
+        } else {
+            Swal.fire({
+            toast: true,
+              position:"top-end",
+              showConfirmButton: false,
+              timer: 2500,
+              icon: "error",
+              text: response.message
+          })
+        }
+      }
+    </script>
+<% } %>
+
+<% if (userTo) { %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js" integrity="sha512-2hIBfT6wur46uR5ayhmyICuA8s15BvJhagB+jZImgktQAy832P7EuY8njl1HGp4YS0Sk8DXRo9dByhvD3jfDxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      const socket = io("http://127.0.0.1:2500/");
+    </script>
+<% } %>

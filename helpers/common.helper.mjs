@@ -15,7 +15,7 @@ export default {
     }
   },
 
-  multipleColumnSetWhere: (object) => {
+  multipleColumnSetWhere: (object, table = '') => {
     if (typeof object !== "object") {
       throw new TypeError("Invalid input")
     }
@@ -23,7 +23,7 @@ export default {
     const keys = Object.keys(object)
     const values = Object.values(object)
 
-    const columnSet = keys.map((key) => `${key} = ?`).join(" AND ")
+    const columnSet = keys.map((key) => `${table}${key} = ?`).join(" AND ")
 
     return {
       columnSet,
