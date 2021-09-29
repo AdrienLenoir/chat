@@ -12,6 +12,13 @@ Sign in
   let signInForm = document.getElementById("signInUser")
   console.log(signInForm)
 
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
   signInForm.onsubmit = async function (event) {
     event.preventDefault()
 
@@ -28,6 +35,7 @@ Sign in
     }).then((res) => res.json())
 
     if (response.success) {
+      setCookie("token", response.token, 30)
       window.location = "/"
     } else {
       Swal.fire({

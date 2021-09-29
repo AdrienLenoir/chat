@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   multipleColumnSet: (object) => {
     if (typeof object !== "object") {
       throw new TypeError("Invalid input")

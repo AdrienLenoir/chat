@@ -1,7 +1,10 @@
-const jwt = require("jsonwebtoken")
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
+
 const JWT_SIGN_SECRET = process.env.JWT_SIGN_SECRET
 
-module.exports = {
+export default {
   generate: (userId) => {
     return jwt.sign(
       { id: userId },

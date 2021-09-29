@@ -13,7 +13,12 @@ Sign up
 <script>
   let signUpForm = document.getElementById("signUpUser")
 
-  console.log(signUpForm)
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 
   signUpForm.onsubmit = async function (event) {
     event.preventDefault()
@@ -32,6 +37,7 @@ Sign up
     }).then((res) => res.json())
 
     if (response.success) {
+      setCookie("token", response.token, 30)
       window.location = "/"
     } else {
         Swal.fire({
