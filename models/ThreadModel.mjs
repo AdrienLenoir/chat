@@ -7,7 +7,7 @@ class ThreadModel {
   }
 
   async getUserThreads(userId) {
-    let sql = `SELECT user_to FROM ${this.tableName} WHERE user_id = ?`
+    let sql = `SELECT users.id, users.username FROM ${this.tableName} LEFT JOIN users ON users.id = ${this.tableName}.user_to WHERE user_id = ? ORDER BY ${this.tableName}.updated_at DESC`
 
     return await query(sql, [userId])
   }
@@ -19,7 +19,7 @@ class ThreadModel {
   }
 
   async createOrUpdate(userFromId, userToId) {
-    const threadExist = this.threadExist(userFromId, userToId)
+    const threadExist = await this.threadExist(userFromId, userToId)
     if (threadExist) {
       await this.update(userFromId, userToId)
     } else {
@@ -37,7 +37,7 @@ class ThreadModel {
   }
 
   async update(userId, userToId) {
-    const sql = `UPDATE ${this.tableName} SET update_at=NOW() WHERE user_id = ? AND user_to = ? OR user_id = ? AND user_to = ?`
+    const sql = `UPDATE ${this.tableName} SET updated_at=NOW() WHERE user_id = ? AND user_to = ? OR user_id = ? AND user_to = ?`
 
     const result = await query(sql, [userId, userToId, userToId, userId])
 
@@ -46,7 +46,7 @@ class ThreadModel {
 
   async threadExist(userFromId, userToId) {
     const thread = await this.getUserThreadsWithOther(userFromId, userToId)
-    return thread !== undefined
+    return thread.length !== 0
   }
 }
 

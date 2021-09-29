@@ -83,6 +83,10 @@ class UserModel {
       })
     });
   }
+
+  async isLogged(authorization) {
+    return await JWTHelper.verify(authorization)
+  }
 }
 
 export default new UserModel()
