@@ -10,14 +10,22 @@ Sign in
 
 <script>
   let signInForm = document.getElementById("signInUser")
-
   console.log(signInForm)
 
   signInForm.onsubmit = async function (event) {
     event.preventDefault()
 
     let formData = new FormData(this)
-    let response = await fetch('/auth/signin', { method: "POST", body: formData }).then((res) => res.json())
+    let response = await fetch('/auth/signin', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: formData.get('username'),
+        password: formData.get('password'),
+      })
+    }).then((res) => res.json())
 
     if (response.success) {
       window.location = "/"
