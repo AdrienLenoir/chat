@@ -19,7 +19,7 @@ Sign up
     event.preventDefault()
 
     let formData = new FormData(this)
-    let response = await fetch('/auth/signin', {
+    let response = await fetch('/auth/signup', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

@@ -33,12 +33,12 @@ export default {
           message: "Empty field"
         }) 
     }
-    // if(req.body.password < 3 || req.body.password > 12) {
-    //   return res.json({
-    //     success: false,
-    //     message: "Password to long or to short"
-    //   }) 
-    // }
+    if(req.body.password.length < 3) {
+      return res.json({
+        success: false,
+        message: "Password to short"
+      }) 
+    }
     if(req.body.passwordAgain !== req.body.password) {
       return res.json({
         success: false,
