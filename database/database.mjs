@@ -1,6 +1,6 @@
-import path from "path"
-
-const { createPool } = require("mysql")
+import { createPool } from 'mysql'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const HttpStatusCodes = Object.freeze({
   ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 422,

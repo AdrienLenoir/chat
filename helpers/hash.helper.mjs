@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 
-module.exports = {
+export default {
   hash: (password) => {
     return new Promise((resolve) => {
       bcrypt.hash(password, 10, (err, hashedPassword) => {
@@ -9,7 +9,7 @@ module.exports = {
     })
   },
   verify: (password, hashedPassword) => {
-    return new Promise((resolve) => {
+    return new Promise( (resolve) => {
       bcrypt.compare(password, hashedPassword, (err, isEgal) => {
         resolve(isEgal)
       })

@@ -1,8 +1,8 @@
-import { multipleColumnSetWhere, multipleColumnSet } from '../helpers/common.helper'
+import CommonHelper from '../helpers/common.helper.mjs'
 import JWTHelper from '../helpers/jwt.helper.mjs'
 import HashHelper from '../helpers/hash.helper.mjs'
 import bcrypt from "bcrypt";
-import { query } from '../database/database'
+import { query } from '../database/database.mjs'
 
 class UserModel {
   constructor() {
@@ -16,14 +16,14 @@ class UserModel {
       return await query(sql)
     }
 
-    const { columnSet, values } = multipleColumnSetWhere(params)
+    const { columnSet, values } = CommonHelper.multipleColumnSetWhere(params)
     sql += ` WHERE ${columnSet}`
 
     return await query(sql, [...values])
   }
 
   async findOne(params) {
-    const { columnSet, values } = multipleColumnSetWhere(params)
+    const { columnSet, values } = CommonHelper.multipleColumnSetWhere(params)
 
     const sql = `SELECT * FROM ${this.tableName} WHERE ${columnSet}`
 
@@ -32,8 +32,13 @@ class UserModel {
     return result[0]
   }
 
+  async exist(username) {
+    const user = await this.findOne({ username })
+    return user !== undefined
+  }
+
   async create({ username, password }) {
-    const sql = `INSERT INTO ${this.tableName} (username, password, create_at) VALUES (?,?, NOW())`
+    const sql = `INSERT INTO ${this.tableName} (username, password) VALUES (?,?)`
     password = await HashHelper.hash(password)
 
     const result = await query(sql, [username, password])
@@ -44,7 +49,7 @@ class UserModel {
 
 
   async update(params, id) {
-    const { columnSet, values } = multipleColumnSet(params)
+    const { columnSet, values } = CommonHelper.multipleColumnSet(params)
 
     const sql = `UPDATE ${this.tableName} SET ${columnSet}, update_at=NOW() WHERE id=?`
 
@@ -62,20 +67,20 @@ class UserModel {
   }
 
   async signin(userId, password, goodpassword) {
-    return new Promise(function(resolve) {
-      bcrypt.compare(password, goodpassword, async (err, isEgal) => {
-        if (isEgal) {
-          return resolve({
-            success: true,
-            token: JWTHelper.generate(userId)
-          })
-        } else {
-          return resolve({
-            success: false,
-            message: "Incorrect password"
-          })
-        }
-      });
+    return new Promise(async function (resolve) {
+      const isEgal = await HashHelper.verify(password, goodpassword)
+
+      if (isEgal) {
+        return resolve({
+          success: true,
+          token: JWTHelper.generate(userId)
+        })
+      }
+
+      return resolve({
+        success: false,
+        message: "Incorrect password"
+      })
     });
   }
 }
