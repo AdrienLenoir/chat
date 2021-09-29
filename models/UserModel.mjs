@@ -32,11 +32,11 @@ class UserModel {
     return result[0]
   }
 
-  async create({ lastname, firstname, email, password, a2f_secret_key }) {
-    const sql = `INSERT INTO ${this.tableName} (lastname, firstname, email, password, a2f_secret_key, create_at, update_at) VALUES (?,?,?,?,?, NOW(), NOW())`
+  async create({ username, password }) {
+    const sql = `INSERT INTO ${this.tableName} (username, password, create_at) VALUES (?,?, NOW())`
     password = await HashHelper.hash(password)
 
-    const result = await query(sql, [lastname, firstname, email, password, a2f_secret_key])
+    const result = await query(sql, [username, password])
     const affectedRows = result ? result.affectedRows : 0
 
     return affectedRows > 0 ? result : null
@@ -61,7 +61,7 @@ class UserModel {
     return result
   }
 
-  async login(userId, password, goodpassword) {
+  async signin(userId, password, goodpassword) {
     return new Promise(function(resolve) {
       bcrypt.compare(password, goodpassword, async (err, isEgal) => {
         if (isEgal) {
@@ -78,7 +78,6 @@ class UserModel {
       });
     });
   }
-
 }
 
 export default new UserModel()
