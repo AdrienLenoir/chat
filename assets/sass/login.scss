@@ -2,6 +2,10 @@ $border-radius: 15px;
 $background-color: #00072B;
 $font: "Quicksand", sans-serif;
 
+@mixin neumorphism {
+  box-shadow: 15px 15px 30px rgba( 0, 0, 0, 0.35 ), inset 20px 20px 25px rgba( 0, 0, 0, 0.30 ), -4px -4px 20px rgba( 255, 255, 255, 0.17 ), inset -5px -5px 30px rgba( 255, 255, 255, .20 );
+}
+
 body {
   height: 100%;
   margin: 0;
@@ -9,6 +13,7 @@ body {
   font-family: $font;
   background: $background-color;
   background-size: cover;
+  overflow: hidden;
 }
 
 main {
@@ -26,18 +31,21 @@ main {
 
 .container {
   width: 50rem;
-  height: 35rem;
+  height: 40rem;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
   //max-width: 80rem;
   margin: 1rem;
   padding: 2rem;
   z-index: 1;
-  backdrop-filter: blur( 25px );
-  border: 1px solid rgba( 255, 255, 255, 0.25 );
-  border-right: 1px solid rgba( 255, 255, 255, 0.1 );
-  border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
-  background: rgba(255, 255, 255, 0.1);
+  // border: 1px solid rgba( 255, 255, 255, 0.25 );
+  // border-right: 1px solid rgba( 255, 255, 255, 0.1 );
+  // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
+  background: rgba( 255, 255, 255, 0.01 );
   border-radius: 10px;
-  box-shadow: 0 25px 45px rgba( 0, 0, 0, 0.25 )
+  backdrop-filter: blur(15px);
+  @include neumorphism;
 }
 
 form {
@@ -91,6 +99,8 @@ form {
 .input-group {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   //margin-bottom: 1rem;
   input {
     display: block;
@@ -98,16 +108,18 @@ form {
     padding: 1.2rem;
     box-sizing: border-box;
     outline: none;
+    color: rgba( 255, 255, 255, .7 );
+    font-size: 15px;
+    text-align: center;
     //box-shadow: 0 25px 45px 0 rgba( 31, 38, 135, 0.37 );
     //backdrop-filter: blur( 25px );
     border-radius: $border-radius;
-    border: 1px solid rgba( 255, 255, 255, 0.1 );
-    background: rgba( 255, 255, 255, 0.1 );
+    border: 1px solid rgba( 255, 255, 255, 0 );
+    background: rgba(255, 255, 255, 0.2);
     &:focus {
       border-color: var(--color-primary);
       background: rgba( 255, 255, 255, 0.25 );
     }
-  
   }
 }
 
@@ -126,7 +138,7 @@ form {
 
 .button {
   width: 30%;
-  margin-top: 2rem;
+  margin: 2rem;
   padding: 1rem 2rem;
   font-weight: bold;
   font-size: 1.1rem;
@@ -145,9 +157,9 @@ form {
   
 }
 
-
 .text {
   text-align: center;
+  margin-top: 2.5rem;
 }
 
 .link {
@@ -159,47 +171,100 @@ form {
   }
 }
 
+// --- BACKGROUND IMAGES -----------
 
-// nav {
-//   padding: 0;
-//   display: flex;
-//   height: 100%;
-//   width: 100%;
-//   justify-content: space-between;
-//   align-items: center;
-//   /*border-bottom: 1px solid rgba(255, 255, 255, 0.1);*/
-//   position: static;
-//   font-family: $font;
-// }
+@mixin bg-img {
+  position: absolute;
+  z-index: -5;
+  filter: blur(2px)
+}
 
-// .nav_link:hover {
-//   opacity: 0.8;
-//   cursor: pointer;
-// }
+.top-left {
+  @include bg-img;
+  top: -2rem;
+  left: 8rem;
+  width: 20%;
+}
+.bottom-left {
+  @include bg-img;
+  top: 15rem;
+  right: 60rem;
+  width: 75%;
+}
+.top-right {
+  @include bg-img;
+  top: -8rem;
+  right: 15rem;
+  width: 25%;
+}
+.bottom-right {
+  @include bg-img;
+  top: 40rem;
+  right: 25rem;
+}
+.center-left {
+  @include bg-img;
+  filter: blur(70px);
+  right: 65rem;
+  width: 15%;
+}
 
-// .nav_link {
-//   cursor: pointer;
-//   margin-right: 24px;
-//   justify-content: space-between;
-//   align-items: center;
-//   font-size: 1.5em;
-//   display: flex;
-//   flex-direction: column;
-//   left: 0;
-//   width: 100%;
+@mixin bubble {
+  @include bg-img;
+  height: auto;
+  z-index: 2;
+  border-radius: 50%;
+  @include neumorphism;
+  backdrop-filter: blur(4.5px);
+  border: .5px solid rgba( 255, 255, 255, .25 )
+  //background-color: #00072B
+}
+.bu1 {
+  @include bubble;
+  top: 2rem;
+  left: 25rem;
+  width: 12%;
+}
+.bu2 {
+  @include bubble;
+  top: 8rem;
+  left: 18rem;
+  width: 3.5%;
+}
+.bu3 {
+   @include bubble;
+  left: 32rem;
+  bottom: 16rem;
+  width: 8%;
+  filter: blur(1.2px);
+}
 
-//   font-weight: 500;
-//   text-decoration: none;
-//   color: #35180c;
-// }
+.bu4 {
+  @include bubble;
+  filter: blur(1.2px);
+  left: 38rem;
+  bottom:6rem;
+  width: 5%
+}
 
-// .logo {
-//   padding-bottom: 7px;
-// }
+.bu5 {
+  @include bubble;
+  top: 2.5rem;
+  right: 10rem;
+  width: 9%;
 
-// footer {
-//   text-align: center;
-//   color: white;
-//   display: flex;
-//   justify-content: space-evenly;
-// }
+}
+
+.bu6 {
+  @include bubble;
+  top: 14rem;
+  right: 18rem;
+  width: 4%;
+}
+
+.bu7 {
+  @include bubble;
+  width: 8.5%;
+  right: 21rem;
+  bottom: 5rem;
+}
