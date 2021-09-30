@@ -8,7 +8,8 @@
         <li>
             <a href="/messages/<%= thread.id %>">
                 id: <%= thread.id %><br>
-                username: <%= thread.username %>
+                username: <%= thread.username %><br>
+                isOnline: <%= thread.isOnline %>
             </a>
         </li>
     <% }); %>
@@ -20,7 +21,7 @@
         <li>
             username: <%= message.username %><br>
             content: <%= message.content %><br>
-            created_at: <%= message.created_at %>
+            created_at: <%= `${message.created_at.calendar()}` %>
         </li>
     <% }); %>
 </ul>
@@ -34,7 +35,10 @@
 <% } %>
 
 <% if (userTo) { %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js" integrity="sha512-2hIBfT6wur46uR5ayhmyICuA8s15BvJhagB+jZImgktQAy832P7EuY8njl1HGp4YS0Sk8DXRo9dByhvD3jfDxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+      const socket = io("http://127.0.0.1:2500/")
       let messageUser = document.getElementById("messageUser")
       const messagesElement = document.getElementById("messages")
       const messageInputElement = document.getElementById("messageInput")
@@ -43,7 +47,17 @@
         event.preventDefault()
 
         let formData = new FormData(this)
-        let response = await fetch(window.location, {
+
+        socket.emit("send_message", {
+          userToId: <%= userTo.id %>,
+          message: formData.get('message'),
+        })
+
+        messageInputElement.value = ''
+
+
+
+        /*let response = await fetch(window.location, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -70,13 +84,19 @@
               text: response.message
           })
         }
-      }
-    </script>
-<% } %>
 
-<% if (userTo) { %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js" integrity="sha512-2hIBfT6wur46uR5ayhmyICuA8s15BvJhagB+jZImgktQAy832P7EuY8njl1HGp4YS0Sk8DXRo9dByhvD3jfDxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      const socket = io("http://127.0.0.1:2500/");
+         */
+      }
+
+      socket.on("message_from_<%= userTo.id%>", appendMessage)
+      socket.on("message_to_<%= userTo.id%>", appendMessage)
+
+      function appendMessage(message) {
+        console.log("test")
+        let messageElement = document.createElement("li")
+
+        messageElement.innerHTML = `username: ${message.username} <br>content: ${message.content}<br>created_at: ${moment(message.created_at).calendar()}`
+        messagesElement.append(messageElement)
+      }
     </script>
 <% } %>
