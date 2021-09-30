@@ -16,6 +16,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(expressLayout)
+app.use('/assets', express.static('assets'))
+app.use('/upload', express.static('upload'))
 app.use(router)
 
 app.set('layout extractScripts', true)
