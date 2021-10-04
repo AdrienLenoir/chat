@@ -60,11 +60,36 @@ main {
   height: 100%;
   padding: 2rem;
   z-index: 1;
+  
   // border: 1px solid rgba( 255, 255, 255, 0.25 );
   // border-right: 1px solid rgba( 255, 255, 255, 0.1 );
   // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  
+  .profile {
+    margin-top: 3rem;
+    color: white;
+    font-family: $font;
+    display: flex;
+    flex-direction: row;
+    p {
+      align-self: center;
+    }
+    img {
+      width: 30%;
+      border-radius: 50%;
+      margin: 2rem 1.5rem 0 1.5rem;
+      align-self: flex-start;
+    }
+    .text{
+      a {
+        color: white;
+        text-decoration: none;
+        font-family: $font;
+        align-self: flex-end;
+        padding-left: 15px;
+      }
+    }
+  }
   li {
     padding: 3rem 0 0 0;
     text-align: center;
@@ -80,7 +105,6 @@ main {
       text-decoration: none;
       font-family: $font;
       align-self: center;
-      
     }
   }
 }
