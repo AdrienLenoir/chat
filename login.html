@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
     <link rel="stylesheet" href="/assets/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,55 +14,72 @@
 </head>
 <body>
   <main>
+    <div class="bg"> 
+    <img src="/assets/images/bg_elements/top_left.svg" class="top-left" alt="svg top left">
+    <img src="/assets/images/bg_elements/bottom_left.svg" class="bottom-left" alt="svg bottom left">
+    <img src="/assets/images/bg_elements/top_right.svg" class="top-right" alt="svg top right">
+    <img src="/assets/images/bg_elements/bottom_right.svg" class="bottom-right" alt="svg bottom right">
+    <img src="/assets/images/bg_elements/center_left.svg" class="center-left" alt="svg center left">
+    <svg height="100" width="100" class="bu1"></svg>
+    <svg height="100" width="100" class="bu2"></svg>
+    <svg height="100" width="100" class="bu3"></svg>
+    <svg height="100" width="100" class="bu4"></svg>
+    <svg height="100" width="100" class="bu5"></svg>
+    <svg height="100" width="100" class="bu6"></svg>
+    <svg height="100" width="100" class="bu7"></svg>
+
+
+    </div>
     <div class="container">
       <form action="POST" class="form" method="post" id="login">
-        <h1 class="form__title">Login</h1>
-        <div class="form__message form__message--error"></div>
-        <div class="form__input-group"> 
-          <input type="text" class="form__input" autofocus placeholder="Username or email">
-          <div class="form__input-error-message"></div>
+        <h1 class="title">Welcome</h1>
+        <p class="title">Log in to your account</p>
+        <div class="message message--error"></div>
+        <div class="input-group"> 
+          <input type="text" class="username" autofocus placeholder="Username or email">
+          <div class="input-error-message"></div>
         </div>
-        <div class="form__input-group"> 
-          <input type="password" class="form__input" autofocus placeholder="Password">
-          <div class="form__input-error-message"></div>
+        <div class="input-group"> 
+          <input type="password" class="password" autofocus placeholder="Password">
+          <div class="input-error-message"></div>
+          <button class="button" type="submit">Continue</button>
         </div>
-        <button class="form__button" type="submit">Continue</button>
-        <p class="form__text">
-          <a href="#" class="form__link">Forgot your password?</a>
+        <p class="text">
+          <a href="#" class="link">Forgot your password?</a>
         </p>
-        <p class="form__text">
-          <a class="form__link" href="./" id="linkCreateAccount">Don't have and account? Create an account</a>
+        <p class="text">
+          <a class="link" href="./" id="linkCreateAccount">Don't have and account? Create an account</a>
         </p>
       </form>
-      <form class="form form--hidden" id="createAccount">
-        <h1 class="form__title">Create an account</h1>
-        <div class="form__message form__message--error"></div>
-        <div class="form__input-group">
-            <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
-            <div class="form__input-error-message"></div>
+      <form class="form--hidden" id="createAccount">
+        <h1 class="title">Create an account</h1>
+        <div class="message message--error"></div>
+        <div class="input-group">
+            <input type="text" id="signupUsername" autofocus placeholder="Username">
+            <div class="input-error-message"></div>
         </div>
-        <div class="form__input-group">
-            <input type="text" class="form__input" autofocus placeholder="Email address">
-            <div class="form__input-error-message"></div>
+        <div class="input-group">
+            <input type="text" autofocus placeholder="Email address">
+            <div class="input-error-message"></div>
         </div>
-        <div class="form__input-group">
-            <input type="password" class="form__input" autofocus placeholder="Password">
-            <div class="form__input-error-message"></div>
+        <div class="input-group">
+            <input type="password" autofocus placeholder="Password">
+            <div class="input-error-message"></div>
         </div>
-        <div class="form__input-group">
-            <input type="password" class="form__input" autofocus placeholder="Confirm password">
-            <div class="form__input-error-message"></div>
+        <div class="input-group">
+            <input type="password" autofocus placeholder="Confirm password">
+            <div class="input-error-message"></div>
         </div>
-        <button class="form__button" type="submit">Continue</button>
-        <p class="form__text">
-            <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+        <button class="button" type="submit">Continue</button>
+        <p class="text">
+            <a class="link" href="./" id="linkLogin">Already have an account? Sign in</a>
         </p>
     </div>
   </main>
-
+<!-- 
   <footer>
     <p class="footer__copyright">BeCode © 2021</p>
-  </footer>
+  </footer> -->
 
   <script src="assets/js/script.js"></script>
 </body>

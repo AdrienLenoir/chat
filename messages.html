@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="../assets/css/messages.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Quicksand:wght@400;500;700&family=Varela+Round&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="#" class="nav__link" data-link>Accueil</a>
+        <a href="#" class="nav__link" data-link>Factures</a>
+        <a href="#" class="nav__link" data-link>Sociétés</a>
+        <a href="#" class="nav__link" data-link>Contacts</a>
+        <button class="dropdown-btn">Admin</button>
+        <div class="dropdown-container">
+            <a href="#" class="nav__link" data-link>New Facture</a>
+            <a href="#" class="nav__link" data-link>New Société</a>
+            <a href="#" class="nav__link" data-link>New Contacts</a>
+        </div>
+        <a href="#" class="nav__link" data-link>Déconnexion</a>
+    </nav>
+
+    <main id="app">
+        <h1>Accueil</h1>
+        <p>Bienvenue à la COGIP !</p>
+
+        <section>
+            <h2>Dernières Factures</h2>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Numéro de facture</th>
+                        <th>Dates</th>
+                        <th>Société</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F20190404-004</td>
+                        <td>04/04/2019</td>
+                        <td>Jouets Jean-Michel</td>
+                    </tr>
+                    <tr class="active-row">
+                        <td>F20190404-003</td>
+                        <td>04/04/2019</td>
+                        <td>Dunder Mifflin</td>
+                    </tr>
+                    <tr>
+                        <td>F20190404-002</td>
+                        <td>04/04/2019</td>
+                        <td>Pierre Cailloux</td>
+                    </tr>
+                    <tr>
+                        <td>F20190404-001</td>
+                        <td>04/04/2019</td>
+                        <td>Pied Pipper</td>
+                    </tr>
+                    <tr>
+                        <td>F20190403-654</td>
+                        <td>03/04/2019</td>
+                        <td>Raviga</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Derniers Contacts</h2>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Téléphone</th>
+                        <th>E-mail</th>
+                        <th>Société</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Peter Gregory</td>
+                        <td>555-4567</td>
+                        <td>peter.gregory@raviga.com</td>
+                        <td>Raviga</td>
+                    </tr>
+                    <tr class="active-row">
+                        <td>Cameron Howe</td>
+                        <td>555-7896</td>
+                        <td>cam.howe@mutiny.net</td>
+                        <td>Mutiny</td>
+                    </tr>
+                    <tr>
+                        <td>Gavin Belson</td>
+                        <td>555-4213</td>
+                        <td>gavin@hooli.com</td>
+                        <td>Hooli</td>
+                    </tr>
+                    <tr>
+                        <td>Jian Yang</td>
+                        <td>555-4567</td>
+                        <td>jian.yang@phoque.off</td>
+                        <td>Phoque Off</td>
+                    </tr>
+                    <tr>
+                        <td>Bertram Gilfoyle</td>
+                        <td>555-0987</td>
+                        <td>gilfoyle@piedpiper.com</td>
+                        <td>Pied Piper</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Dernières Société</h2>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>TVA</th>
+                        <th>Pays</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Raviga</td>
+                        <td>US456 654 342</td>
+                        <td>United States</td>
+                        <td>Fournisseur</td>
+                    </tr>
+                    <tr class="active-row">
+                        <td>Dunder Mifflin</td>
+                        <td>US678 765 765</td>
+                        <td>United States</td>
+                        <td>Client</td>
+                    </tr>
+                    <tr>
+                        <td>Pierre Cailloux</td>
+                        <td>FR 678 908 654</td>
+                        <td>France</td>
+                        <td>Fournisseur</td>
+                    </tr>
+                    <tr>
+                        <td>Belgalol</td>
+                        <td>BE0876 654 665</td>
+                        <td>Belgique</td>
+                        <td>Fournisseur</td>
+                    </tr>
+                    <tr>
+                        <td>Jouets Jean-Michel</td>
+                        <td>FR 677 544 000</td>
+                        <td>France</td>
+                        <td>Client</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script type="module" src="../assets/scripts/welcome.js"></script>
+</body>
+
+</html>
