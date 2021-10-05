@@ -1,13 +1,16 @@
-$border-radius: 15px; 
-$background-color: #00072B;
+$border-radius: 15px;
+$background-color: #00072b;
 $font: "Quicksand", sans-serif;
-$button-color: #0029FF;
-$light-blue: #50D5FF;
+$button-color: #0029ff;
+$light-blue: #50d5ff;
 $error: #cc3333;
 $success: #4bb544;
 
 @mixin neumorphism {
-  box-shadow: 15px 15px 30px rgba( 0, 0, 0, 0.35 ), inset 20px 20px 25px rgba( 0, 0, 0, 0.30 ), -4px -4px 20px rgba( 255, 255, 255, 0.17 ), inset -5px -5px 30px rgba( 255, 255, 255, .20 );
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35),
+    inset 20px 20px 25px rgba(0, 0, 0, 0.3),
+    -4px -4px 20px rgba(255, 255, 255, 0.17),
+    inset -5px -5px 30px rgba(255, 255, 255, 0.2);
 }
 
 // html {
@@ -24,14 +27,13 @@ body {
   background: $background-color;
   background-size: cover;
   overflow: hidden;
-
 }
 
 main {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: .5fr 6fr 1fr;
+  grid-template-rows: 0.5fr 6fr 1fr;
   align-items: center;
   font-size: 18px;
 }
@@ -47,10 +49,60 @@ main {
   // border: 1px solid rgba( 255, 255, 255, 0.25 );
   // border-right: 1px solid rgba( 255, 255, 255, 0.1 );
   // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
-  background: rgba( 255, 255, 255, 0.01 );
+  background: rgba(255, 255, 255, 0.01);
   border-radius: 10px;
   backdrop-filter: blur(15px);
   @include neumorphism;
+}
+
+
+.chat-history {
+
+  padding: 30px 30px 20px;
+  border-radius: 50px;
+  color: white;
+
+  .wrapper {
+    padding-bottom: 65px;
+  }
+
+  .message-data {
+    margin-bottom: 15px;
+  }
+
+  .message-data-time {
+    color: lighten(grey, 2%);
+    padding-left: 6px;
+  }
+
+  .message {
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    position: relative;
+    max-width: 45%;
+  
+  }
+
+  .my-message {
+    background: #0029ff;
+    float: left;
+  }
+
+  .other-message {
+    background: grey;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+.align-right {
+  text-align: right;
 }
 
 .contact {
@@ -63,8 +115,12 @@ main {
   // border: 1px solid rgba( 255, 255, 255, 0.25 );
   // border-right: 1px solid rgba( 255, 255, 255, 0.1 );
   // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
   li {
     padding: 3rem 0 0 0;
     text-align: center;
@@ -80,7 +136,6 @@ main {
       text-decoration: none;
       font-family: $font;
       align-self: center;
-      
     }
   }
 }
@@ -108,7 +163,6 @@ form {
 .form--hidden {
   display: none;
 }
-
 
 .title {
   margin-bottom: 2rem;
@@ -145,22 +199,20 @@ form {
     padding: 1.2rem;
     box-sizing: border-box;
     outline: none;
-    color: rgba( 255, 255, 255, .7 );
+    color: rgba(255, 255, 255, 0.7);
     font-size: 15px;
     text-align: center;
     //box-shadow: 0 25px 45px 0 rgba( 31, 38, 135, 0.37 );
     //backdrop-filter: blur( 25px );
     border-radius: $border-radius;
-    border: 1px solid rgba( 255, 255, 255, 0 );
+    border: 1px solid rgba(255, 255, 255, 0);
     background: rgba(255, 255, 255, 0.2);
     &:focus {
       border-color: $light-blue;
-      background: rgba( 255, 255, 255, 0.25 );
+      background: rgba(255, 255, 255, 0.25);
     }
   }
 }
-
-
 
 .input--error {
   color: $error;
@@ -191,7 +243,6 @@ form {
   &:hover {
     background: $button-color;
   }
-  
 }
 
 .text {
@@ -213,7 +264,7 @@ form {
 @mixin bg-img {
   position: absolute;
   z-index: -5;
-  filter: blur(2px)
+  filter: blur(2px);
 }
 
 .top-left {
@@ -253,7 +304,7 @@ form {
   border-radius: 50%;
   @include neumorphism;
   backdrop-filter: blur(4.5px);
-  border: .5px solid rgba( 255, 255, 255, .25 )
+  border: 0.5px solid rgba(255, 255, 255, 0.25);
   //background-color: #00072B
 }
 .bu1 {
@@ -269,7 +320,7 @@ form {
   width: 3.5%;
 }
 .bu3 {
-   @include bubble;
+  @include bubble;
   left: 32rem;
   bottom: 16rem;
   width: 8%;
@@ -280,8 +331,8 @@ form {
   @include bubble;
   filter: blur(1.2px);
   left: 38rem;
-  bottom:6rem;
-  width: 5%
+  bottom: 6rem;
+  width: 5%;
 }
 
 .bu5 {
@@ -289,7 +340,6 @@ form {
   top: 2.5rem;
   right: 10rem;
   width: 9%;
-
 }
 
 .bu6 {
@@ -305,3 +355,4 @@ form {
   right: 21rem;
   bottom: 5rem;
 }
+
