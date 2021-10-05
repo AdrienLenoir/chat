@@ -49,7 +49,7 @@ main {
   // border: 1px solid rgba( 255, 255, 255, 0.25 );
   // border-right: 1px solid rgba( 255, 255, 255, 0.1 );
   // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   backdrop-filter: blur(15px);
   @include neumorphism;
@@ -122,6 +122,7 @@ main {
     border-radius: 50px;
     resize: none;
     line-height: 10px;
+    opacity: 20%;
   //bottom: 20px;
   //transform: translate(-50%, -50%);
   margin: 0 auto;
@@ -171,7 +172,7 @@ main {
   // border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
   .profile {
-    margin-top: 3rem;
+    margin-top: 5rem;
     color: white;
     font-family: $font;
     display: flex;
@@ -191,7 +192,7 @@ main {
         text-decoration: none;
         font-family: $font;
         align-self: flex-end;
-        padding-left: 15px;
+        padding-left: 2px;
       }
     }
   }
@@ -232,35 +233,22 @@ main {
   filter: blur(2px);
 }
 
-.top-left {
-  @include bg-img;
-  top: -2rem;
-  left: 8rem;
-  width: 20%;
-}
-.bottom-left {
-  @include bg-img;
-  top: 15rem;
-  right: 60rem;
-  width: 75%;
-}
-.top-right {
-  @include bg-img;
-  top: -8rem;
-  right: 15rem;
-  width: 25%;
-}
-.bottom-right {
-  @include bg-img;
-  top: 40rem;
-  right: 25rem;
-}
 .center-left {
   @include bg-img;
-  filter: blur(70px);
-  right: 65rem;
-  width: 15%;
+  filter: blur(90px);
+  right: 11rem;
+  top: 15rem;
+  width: 20%;
 }
+.center-left2 {
+  @include bg-img;
+  left: 9rem;
+  bottom: 6rem;
+  width: 20%;
+  filter: blur(90px) hue-rotate(60deg);
+
+}
+
 
 @mixin bubble {
   @include bg-img;
@@ -272,51 +260,18 @@ main {
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   //background-color: #00072B
 }
-.bu1 {
-  @include bubble;
-  top: 2rem;
-  left: 25rem;
-  width: 12%;
-}
-.bu2 {
-  @include bubble;
-  top: 8rem;
-  left: 18rem;
-  width: 3.5%;
-}
-.bu3 {
-  @include bubble;
-  left: 32rem;
-  bottom: 16rem;
-  width: 8%;
-  filter: blur(1.2px);
-}
 
-.bu4 {
-  @include bubble;
-  filter: blur(1.2px);
-  left: 38rem;
-  bottom: 6rem;
-  width: 5%;
-}
-
-.bu5 {
-  @include bubble;
-  top: 2.5rem;
-  right: 10rem;
-  width: 9%;
-}
 
 .bu6 {
   @include bubble;
-  top: 14rem;
-  right: 18rem;
+  top: 2rem;
+  right: 0rem;
   width: 4%;
 }
 
 .bu7 {
   @include bubble;
   width: 8.5%;
-  right: 21rem;
-  bottom: 5rem;
+  left: 21rem;
+  bottom: .5rem;
 }
