@@ -7,9 +7,11 @@ $error: #cc3333;
 $success: #4bb544;
 
 @mixin neumorphism {
-  box-shadow: 15px 15px 30px rgba( 0, 0, 0, 0.35 ), inset 20px 20px 25px rgba( 0, 0, 0, 0.30 ), -4px -4px 20px rgba( 255, 255, 255, 0.17 ), inset -5px -5px 30px rgba( 255, 255, 255, .20 );
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.40),
+    inset 20px 20px 25px rgba(0, 0, 0, 0.3),
+    -4px -4px 20px rgba(255, 255, 255, 0.20),
+    inset -5px -5px 30px rgba(255, 255, 255, 0.2);
 }
-
 body {
   height: 100%;
   margin: 0;
