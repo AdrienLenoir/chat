@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>messages</title>
     <!-- <link rel="shortcut icon" href="favicon.ico"> -->
     <link rel="stylesheet" href="/assets/css/msg-page.css">
@@ -29,14 +29,31 @@
     <svg height="100" width="100" class="bu7"></svg>
     </div> -->
 
-    <div class="container">
-      <form action="POST" class="form" method="post" id="login">
-        <h1 class="title">Welcome</h1>
-        <p class="title">Log in to your account</p>
-        <div class="message message--error"></div>
-        <div class="input-group"> 
-          <input type="text" class="username" autofocus placeholder="Username or email">
-          <div class="input-error-message"></div>
+      <div class="container">
+        <div class="chat-history">
+          <div class="wrapper">
+            <div class="message-data align-right">
+              <span class="message-data-time">10:10 AM, Today</span>
+              &nbsp; &nbsp;
+              <span class="message-data-name">Kevan Doe</span>
+              <i class="fa fa-circle" aria-hidden="true"></i>
+            </div>
+            <div class="message other-message float-right">
+              Hi Vincent, how are you? How is the project coming along? nemzkndzekn fcrzklnvz;v mkn:zmlen lqnvmzltcneùql bnvzrsoblhnr vezgv'gb gzrtg§j èj"'(hzza' hz'(gf'((tg(g( g§hh§§§§)))))
+            </div>
+          </div>
+
+          <div class="wrapper">
+            <div class="message-data">
+              <span class="message-data-name"> Zalan Doe Le S</span>
+              &nbsp; &nbsp;
+              <span class="message-data-time">10:12 AM, Today</span>
+            </div>
+            <div class="message my-message">
+              Are we meeting today? Project has been already finished and I have
+              results to show you. nemzkndzekn fcrzklnvz;v mkn:zmlen lqnvmzltcneùql bnvzrsoblhnr vezgv'gb gzrtg§j èj"'(hzza' hz'(gf'((tg(g( g§hh§§§§)))))
+            </div>
+          </div>
         </div>
         <div class="input-group"> 
           <input type="password" class="password" autofocus placeholder="Password">
@@ -77,11 +94,70 @@
     </div>
   </main>
 
-<!-- 
+        <!-- <form action="POST" class="form" method="post" id="login">
+          <h1 class="title">Welcome</h1>
+          <p class="title">Log in to your account</p>
+          <div class="message message--error"></div>
+          <div class="input-group">
+            <input
+              type="text"
+              class="username"
+              autofocus
+              placeholder="Username or email"
+            />
+            <div class="input-error-message"></div>
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              class="password"
+              autofocus
+              placeholder="Password"
+            />
+            <div class="input-error-message"></div>
+            <button class="button" type="submit">Continue</button>
+          </div>
+          <p class="text">
+            <a href="#" class="link">Forgot your password?</a>
+          </p>
+          <p class="text">
+            <a class="link" href="./" id="linkCreateAccount">Don't have and account? Create an account</a>
+          </p>
+        </form> -->
+      </div>
+
+      <div class="contact">
+        <ul>
+          <li>
+            <img
+              src="/assets/images/pictures/ex1.jpg"
+              alt="first example pic"
+            />
+            <a href="#">Friend 1</a>
+          </li>
+          <li>
+            <img
+              src="/assets/images/pictures/ex3.jpg"
+              alt="second example pic"
+            />
+            <a href="#">Friend 2</a>
+          </li>
+          <li>
+            <img
+              src="/assets/images/pictures/ex2.jpg"
+              alt="Third example pic"
+            />
+            <a href="#">Friend 3</a>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- 
   <footer>
     <p class="footer__copyright">BeCode © 2021</p>
   </footer> -->
 
-  <script src="assets/js/script.js"></script>
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

@@ -3,53 +3,87 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
-  background: #00072B;
+  background: #00072b;
   background-size: cover;
   overflow: hidden;
 }
 
 main {
   height: 100%;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: .5fr 6fr 1fr;
-      grid-template-rows: .5fr 6fr 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 6fr 1fr;
+  align-items: center;
   font-size: 18px;
 }
 
 .container {
-  -ms-grid-column: 2;
   grid-column: 2;
   width: 90rem;
   height: 47rem;
   margin: 1rem;
   padding: 2rem;
   z-index: 1;
-  -ms-grid-row: 2;
   grid-row: 2;
   background: rgba(255, 255, 255, 0.01);
   border-radius: 10px;
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+}
+
+.chat-history {
+  padding: 30px 30px 20px;
+  border-radius: 50px;
+  color: white;
+}
+
+.chat-history .wrapper {
+  padding-bottom: 65px;
+}
+
+.chat-history .message-data {
+  margin-bottom: 15px;
+}
+
+.chat-history .message-data-time {
+  color: #858585;
+  padding-left: 6px;
+}
+
+.chat-history .message {
+  color: white;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  position: relative;
+  max-width: 45%;
+}
+
+.chat-history .my-message {
+  background: #0029ff;
+  float: left;
+}
+
+.chat-history .other-message {
+  background: grey;
+}
+
+.float-right {
+  float: right;
+}
+
+.align-right {
+  text-align: right;
 }
 
 .contact {
-  -ms-grid-column: 1;
   grid-column: 1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
   grid-row: 1 / 4;
   height: 100%;
   padding: 2rem;
   z-index: 1;
-  background: -webkit-gradient(linear, left top, right top, from(black), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -93,8 +127,6 @@ main {
   padding: 3rem 0 0 0;
   text-align: center;
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -108,9 +140,7 @@ main {
   color: white;
   text-decoration: none;
   font-family: "Quicksand", sans-serif;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 form :first-child {
@@ -159,27 +189,17 @@ form :last-child {
 }
 
 .input-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .input-group input {
   display: block;
   width: 50%;
   padding: 1.2rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   outline: none;
   color: rgba(255, 255, 255, 0.7);
   font-size: 15px;
@@ -190,7 +210,7 @@ form :last-child {
 }
 
 .input-group input:focus {
-  border-color: #50D5FF;
+  border-color: #50d5ff;
   background: rgba(255, 255, 255, 0.25);
 }
 
@@ -216,16 +236,15 @@ form :last-child {
   border-radius: 15px;
   outline: none;
   cursor: pointer;
-  background: #50D5FF;
+  background: #50d5ff;
 }
 
 .button:active {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .button:hover {
-  background: #0029FF;
+  background: #0029ff;
 }
 
 .text {
@@ -246,8 +265,7 @@ form :last-child {
 .top-left {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   top: -2rem;
   left: 8rem;
   width: 20%;
@@ -256,8 +274,7 @@ form :last-child {
 .bottom-left {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   top: 15rem;
   right: 60rem;
   width: 75%;
@@ -266,8 +283,7 @@ form :last-child {
 .top-right {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   top: -8rem;
   right: 15rem;
   width: 25%;
@@ -276,8 +292,7 @@ form :last-child {
 .bottom-right {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   top: 40rem;
   right: 25rem;
 }
@@ -285,10 +300,8 @@ form :last-child {
 .center-left {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
-  -webkit-filter: blur(70px);
-          filter: blur(70px);
+  filter: blur(2px);
+  filter: blur(70px);
   right: 65rem;
   width: 15%;
 }
@@ -296,15 +309,12 @@ form :last-child {
 .bu1 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   top: 2rem;
   left: 25rem;
@@ -314,15 +324,12 @@ form :last-child {
 .bu2 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   top: 8rem;
   left: 18rem;
@@ -332,38 +339,30 @@ form :last-child {
 .bu3 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   left: 32rem;
   bottom: 16rem;
   width: 8%;
-  -webkit-filter: blur(1.2px);
-          filter: blur(1.2px);
+  filter: blur(1.2px);
 }
 
 .bu4 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
-  -webkit-filter: blur(1.2px);
-          filter: blur(1.2px);
+  filter: blur(1.2px);
   left: 38rem;
   bottom: 6rem;
   width: 5%;
@@ -372,15 +371,12 @@ form :last-child {
 .bu5 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   top: 2.5rem;
   right: 10rem;
@@ -390,15 +386,12 @@ form :last-child {
 .bu6 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   top: 14rem;
   right: 18rem;
@@ -408,15 +401,12 @@ form :last-child {
 .bu7 {
   position: absolute;
   z-index: -5;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  filter: blur(2px);
   height: auto;
   z-index: 2;
   border-radius: 50%;
-  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4.5px);
-          backdrop-filter: blur(4.5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.35), inset 20px 20px 25px rgba(0, 0, 0, 0.3), -4px -4px 20px rgba(255, 255, 255, 0.17), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4.5px);
   border: 0.5px solid rgba(255, 255, 255, 0.25);
   width: 8.5%;
   right: 21rem;
