@@ -111,9 +111,10 @@ main {
 
 .chat-message {
   padding: 30px;
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   textarea {
-    width: 90%;
+    width: 1000px;
     border: none;
     padding: 10px 20px;
     font: 14px/22px "Lato", Arial, sans-serif;
@@ -121,8 +122,6 @@ main {
     border-radius: 50px;
     resize: none;
     line-height: 10px;
-    //position: fixed;
-  //left: 50%;
   //bottom: 20px;
   //transform: translate(-50%, -50%);
   margin: 0 auto;
@@ -145,6 +144,8 @@ main {
     background-color: transparent;
     border: none;
     align-self: flex-end;
+    position: fixed;
+    left: 48%;
 
     img{
     width: 10%;

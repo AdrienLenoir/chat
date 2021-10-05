@@ -102,13 +102,17 @@ main {
 
 .chat-message {
   padding: 30px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .chat-message textarea {
-  width: 90%;
+  width: 1000px;
   border: none;
   padding: 10px 20px;
   font: 14px/22px "Lato", Arial, sans-serif;
@@ -139,6 +143,8 @@ main {
   border: none;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  position: fixed;
+  left: 48%;
 }
 
 .chat-message button img {
