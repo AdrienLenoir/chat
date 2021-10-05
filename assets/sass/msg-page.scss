@@ -53,6 +53,10 @@ main {
   border-radius: 10px;
   backdrop-filter: blur(15px);
   @include neumorphism;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -107,7 +111,7 @@ main {
 
 .chat-message {
   padding: 30px;
-
+  display: inline-flex;
   textarea {
     width: 90%;
     border: none;
@@ -117,11 +121,12 @@ main {
     border-radius: 50px;
     resize: none;
     line-height: 10px;
-    position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translate(-50%, -50%);
+    //position: fixed;
+  //left: 50%;
+  //bottom: 20px;
+  //transform: translate(-50%, -50%);
   margin: 0 auto;
+  z-index: -1;
   }
 
   .fa-file,
@@ -137,27 +142,18 @@ main {
     
   }
   button {
-    background-color: navy;
+    background-color: transparent;
+    border: none;
+    align-self: flex-end;
 
     img{
-      width: 5%;
-    }
-  }
-  .send {
+    width: 10%;
     float: right;
-    color: white;
-    font-size: 16px;
-    text-transform: uppercase;
     border: none;
     cursor: pointer;
-    font-weight: bold;
-    background: none;
-    size: 10px;
-
-    &:hover {
-      color: darken(blue, 7%);
     }
   }
+  
 
 }
 
@@ -196,19 +192,7 @@ main {
   }
 }
 
-form {
-  :first-child {
-    margin-top: 1.5rem;
-  }
-  .input-group {
-    .username {
-      margin-top: 5rem;
-    }
-  }
-  :last-child {
-    margin-bottom: 0;
-  }
-}
+
 
 .container,
 .form__input,
@@ -216,104 +200,7 @@ form {
   font: 500 1rem $font;
 }
 
-.form--hidden {
-  display: none;
-}
 
-.title {
-  margin-bottom: 2rem;
-  text-align: center;
-  color: white;
-}
-
-::-webkit-input-placeholder {
-  color: white;
-}
-
-.message {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.message--success {
-  color: $success;
-}
-
-.message--error {
-  color: $error;
-}
-
-.input-group {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  //margin-bottom: 1rem;
-  input {
-    display: block;
-    width: 50%;
-    padding: 1.2rem;
-    box-sizing: border-box;
-    outline: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 15px;
-    text-align: center;
-    //box-shadow: 0 25px 45px 0 rgba( 31, 38, 135, 0.37 );
-    //backdrop-filter: blur( 25px );
-    border-radius: $border-radius;
-    border: 1px solid rgba(255, 255, 255, 0);
-    background: rgba(255, 255, 255, 0.2);
-    &:focus {
-      border-color: $light-blue;
-      background: rgba(255, 255, 255, 0.25);
-    }
-  }
-}
-
-.input--error {
-  color: $error;
-  border-color: $error;
-}
-
-.input-error-message {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: $error;
-}
-
-.button {
-  width: 30%;
-  margin: 2rem;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: white;
-  border: none;
-  border-radius: $border-radius;
-  outline: none;
-  cursor: pointer;
-  background: $light-blue;
-  &:active {
-    transform: scale(0.98);
-  }
-  &:hover {
-    background: $button-color;
-  }
-}
-
-.text {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-
-.link {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-}
 
 // --- BACKGROUND IMAGES -----------
 
