@@ -78,6 +78,64 @@ main {
   text-align: right;
 }
 
+.chat-message {
+  padding: 30px;
+}
+
+.chat-message textarea {
+  width: 90%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  resize: none;
+  line-height: 10px;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.chat-message .fa-file,
+.chat-message .fa-file-image,
+.chat-message .fa-smile {
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-message .fa-file:hover,
+.chat-message .fa-file-image:hover,
+.chat-message .fa-smile:hover {
+  color: #ededed;
+}
+
+.chat-message button {
+  background-color: navy;
+}
+
+.chat-message button img {
+  width: 5%;
+}
+
+.chat-message .send {
+  float: right;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  size: 10px;
+}
+
+.chat-message .send:hover {
+  color: #0000db;
+}
+
 .contact {
   grid-column: 1;
   grid-row: 1 / 4;

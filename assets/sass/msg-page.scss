@@ -105,6 +105,62 @@ main {
   text-align: right;
 }
 
+.chat-message {
+  padding: 30px;
+
+  textarea {
+    width: 90%;
+    border: none;
+    padding: 10px 20px;
+    font: 14px/22px "Lato", Arial, sans-serif;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    resize: none;
+    line-height: 10px;
+    position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  }
+
+  .fa-file,
+  .fa-file-image,
+  .fa-smile {
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      color: darken(white, 7%);
+    }
+    
+  }
+  button {
+    background-color: navy;
+
+    img{
+      width: 5%;
+    }
+  }
+  .send {
+    float: right;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
+    size: 10px;
+
+    &:hover {
+      color: darken(blue, 7%);
+    }
+  }
+
+}
+
 .contact {
   //width: 90rem;
   grid-column: 1;
