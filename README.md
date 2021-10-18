@@ -4,6 +4,9 @@
 
 During our training at BeCode, we had to create an real time chat application in groups of 4 and had 6 days to finish the project. The main objective was to consolidate our knowledge of NodeJS, but also to incorporate it in a bigger project with all the languages we know.
 
+## Web page
+https://becode-chatapp.adrienlenoir.be/
+
 ## Languages and frameworks
 
 - NodeJS (+ NPM)
